@@ -29,7 +29,7 @@ module GraphvizAasm
 
   AASM::Core::State.class_eval do
     def draw(graph)
-      node = graph.add_nodes(self.human_name, shape: final? ? "doublecircle" : "ellipse")
+      node = graph.add_nodes(self.to_s.capitalize, shape: final? ? "doublecircle" : "ellipse")
       graph.add_edge(graph.add_nodes("starting_state", shape: "point"), node) if initial?
     end
 
